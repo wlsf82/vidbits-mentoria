@@ -12,10 +12,10 @@ describe("Vidbits", () => {
     }
   ];
 
+  beforeEach(() => cy.exec("npm run drop-db"));
+
   context("Empty state", () => {
     it("creates two videos", () => {
-      cy.exec("npm run drop-db");
-
       videos.forEach(video => {
         cy.visit("videos");
 
@@ -39,7 +39,6 @@ describe("Vidbits", () => {
 
   context("Two items already seeded in the DB", () => {
     it("creates two more videos", () => {
-      cy.exec("npm run drop-db");
       cy.exec("npm run seed-db");
       
       videos.forEach(video => {
