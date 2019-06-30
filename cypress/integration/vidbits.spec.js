@@ -14,9 +14,9 @@ describe("Vidbits", () => {
   });
 
   context("Two items already seeded in the DB", () => {
+    beforeEach(() => cy.exec("npm run seed-db"));
+
     it("creates two more videos", () => {
-      cy.exec("npm run seed-db");
-      
       videos.forEach(video => cy.createVideo(video));
 
       cy.visit("videos");
