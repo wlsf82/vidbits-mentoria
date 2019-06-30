@@ -17,16 +17,7 @@ describe("Vidbits", () => {
   context("Empty state", () => {
     it("creates two videos", () => {
       videos.forEach(video => {
-        cy.visit("videos/create");
-
-        cy.get("#video-title-input")
-          .type(video.title);
-        cy.get("#video-description-input")
-          .type(video.description);
-        cy.get("#video-url-input")
-          .type(video.url);
-
-        cy.get("#submit-button").click();
+        createVideo(video);
       });
 
       cy.visit("videos");
@@ -40,16 +31,7 @@ describe("Vidbits", () => {
       cy.exec("npm run seed-db");
       
       videos.forEach(video => {
-        cy.visit("videos/create");
-
-        cy.get("#video-title-input")
-          .type(video.title);
-        cy.get("#video-description-input")
-          .type(video.description);
-        cy.get("#video-url-input")
-          .type(video.url);
-
-        cy.get("#submit-button").click();
+        createVideo(video);
       });
 
       cy.visit("videos");
@@ -57,4 +39,17 @@ describe("Vidbits", () => {
       cy.get(".video-card").its("length").should("eq", 4);
     });
   });
+
+  function createVideo(video) {
+    cy.visit("videos/create");
+
+    cy.get("#video-title-input")
+      .type(video.title);
+    cy.get("#video-description-input")
+      .type(video.description);
+    cy.get("#video-url-input")
+        .type(video.url);
+
+    cy.get("#submit-button").click();
+  }
 });
