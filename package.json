@@ -1,0 +1,39 @@
+{
+  "name": "vidbits",
+  "version": "1.0.0",
+  "scripts": {
+    "drop-db": "node ./bin/drop-database",
+    "seed-db": "node ./bin/seed-database",
+    "start": "node ./bin/www",
+    "test": "bin/mocha-test && bin/wdio-test",
+    "test:mocha": "bin/mocha-test || exit 0",
+    "test:feature": "bin/wdio-test || exit 0",
+    "test:e2e:chrome": "npm run drop-db && npm run seed-db && webdriver-manager update && protractor test/e2e/protractorChrome.conf.js",
+    "test:e2e:firefox": "npm run drop-db && npm run seed-db && webdriver-manager update && protractor test/e2e/protractorFirefox.conf.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "eslint": "^4.9.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.11.13",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "cypress": "^3.1.5",
+    "eslint-config-google": "^0.9.1",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jsdom": "^9.12.0",
+    "mocha": "^3.0.0",
+    "protractor": "^5.4.2",
+    "protractor-helper": "^3.3.5",
+    "protractor-jasmine2-html-reporter": "0.0.7",
+    "supertest": "^3.0.0",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-phantomjs-service": "^0.2.2",
+    "wdio-spec-reporter": "^0.1.2",
+    "webdriverio": "^4.2.3"
+  }
+}
