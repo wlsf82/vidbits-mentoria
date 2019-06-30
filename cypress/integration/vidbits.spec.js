@@ -16,9 +16,7 @@ describe("Vidbits", () => {
 
   context("Empty state", () => {
     it("creates two videos", () => {
-      videos.forEach(video => {
-        cy.createVideo(video);
-      });
+      videos.forEach(video => cy.createVideo(video));
 
       cy.visit("videos");
 
@@ -30,9 +28,7 @@ describe("Vidbits", () => {
     it("creates two more videos", () => {
       cy.exec("npm run seed-db");
       
-      videos.forEach(video => {
-        cy.createVideo(video);
-      });
+      videos.forEach(video => cy.createVideo(video));
 
       cy.visit("videos");
 
