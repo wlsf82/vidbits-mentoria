@@ -1,16 +1,5 @@
 describe("Vidbits", () => {
-  const videos = [
-    {
-      title: "Chaos and intuition engineering",
-      description: "GOTO 2016 • Chaos & Intuition Engineering at Netflix • Casey Rosenthal.",
-      url: "https://www.youtube.com/embed/Q4nniyAarbs"
-    },
-    {
-      title: "appear.in & Star Wars",
-      description: "Sed ut perspiciatis unde omnis iste natus error.",
-      url: "https://www.youtube.com/embed/vHTIYVHTSxA"
-    }
-  ];
+  const videos = require("../fixtures/videos");
 
   beforeEach(() => cy.exec("npm run drop-db"));
 
