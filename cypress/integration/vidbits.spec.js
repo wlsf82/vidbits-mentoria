@@ -17,9 +17,7 @@ describe("Vidbits", () => {
   context("Empty state", () => {
     it("creates two videos", () => {
       videos.forEach(video => {
-        cy.visit("videos");
-
-        cy.get(".add-video-button").click();
+        cy.visit("videos/create");
 
         cy.get("#video-title-input")
           .type(video.title);
@@ -42,9 +40,7 @@ describe("Vidbits", () => {
       cy.exec("npm run seed-db");
       
       videos.forEach(video => {
-        cy.visit("videos");
-
-        cy.get(".add-video-button").click();
+        cy.visit("videos/create");
 
         cy.get("#video-title-input")
           .type(video.title);
