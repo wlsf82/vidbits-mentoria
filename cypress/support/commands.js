@@ -23,3 +23,16 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("createVideo", video => {
+  cy.visit("videos/create");
+
+  cy.get("#video-title-input")
+    .type(video.title);
+  cy.get("#video-description-input")
+    .type(video.description);
+  cy.get("#video-url-input")
+    .type(video.url);
+
+  cy.get("#submit-button").click();
+});
