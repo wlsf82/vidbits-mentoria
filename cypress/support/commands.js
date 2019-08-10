@@ -51,6 +51,7 @@ Cypress.Commands.add("createVideoViaApi", video => {
       title: video.title,
       description: video.description,
       url: video.url
-    }
+    },
+    failOnStatusCode: false
   });
 });
