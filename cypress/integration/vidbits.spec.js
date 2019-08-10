@@ -29,9 +29,9 @@ describe("Vidbits", () => {
 
   context("API", () => {
     context("Seed application via API and check via browser UI", () => {
-      beforeEach(() => videos.forEach(video => cy.createVideoViaApi(video)));
-
       it("creates two videos", () => {
+        videos.forEach(video => cy.createVideoViaApi(video))
+
         cy.visit("videos");
 
         cy.validateNumberOfVideoCardsEqualTo(2);
