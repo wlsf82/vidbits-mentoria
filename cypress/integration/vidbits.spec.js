@@ -27,15 +27,27 @@ describe("Vidbits", () => {
     });
   });
 
-  context("Two items already seeded in the DB", () => {
-    beforeEach(() => cy.exec("npm run seed-db"));
+  context("API", () => {
+    context("Seed application via API and check via browser UI", () => {
+      beforeEach(() => videos.forEach(video => cy.createVideoViaApi(video)));
 
-    it("creates two more videos", () => {
-      videos.forEach(video => cy.createVideo(video));
+      it("creates two videos", () => {
+        cy.visit("videos");
 
-      cy.visit("videos");
+        cy.validateNumberOfVideoCardsEqualTo(2);
+      });
+    });
 
-      cy.get(".video-card").its("length").should("eq", 4);
+    context("Testing only in the API layer", () => {
+      it("creates two videos", () => {
+        videos.forEach(video => {
+          cy.createVideoViaApi(video).then(response => {
+            expect(response.status).to.eq(201);
+            expect(response.body).to.include(video.title);
+            expect(response.body).to.include(video.url);
+          });
+        });
+      });
     });
   });
 });
