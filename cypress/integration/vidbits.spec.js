@@ -48,6 +48,12 @@ describe("Vidbits", () => {
           });
         });
       });
+
+      it("does not create video due to missing body data", () => {
+        cy.createVideoViaApi({}).then(response => {
+          expect(response.status).to.eq(400);
+        });
+      });
     });
   });
 });
