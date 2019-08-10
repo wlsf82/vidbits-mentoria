@@ -36,3 +36,21 @@ Cypress.Commands.add("createVideo", video => {
 
   cy.get("#submit-button").click();
 });
+
+Cypress.Commands.add("validateNumberOfVideoCardsEqualTo", n => {
+  cy.get(".video-card").its("length").should("eq", n);
+});
+
+Cypress.Commands.add("createVideoViaApi", video => {
+  cy.server();
+  return cy.request({
+    method: "POST",
+    url: "/videos",
+    form: true,
+    body: {
+      title: video.title,
+      description: video.description,
+      url: video.url
+    }
+  });
+});
