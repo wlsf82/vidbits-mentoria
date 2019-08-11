@@ -28,6 +28,8 @@ describe("Vidbits", () => {
   });
 
   context("API", () => {
+    beforeEach(() => cy.server());
+
     context("Seed application via API and check via browser UI", () => {
       it("creates two videos", () => {
         videos.forEach(video => cy.createVideoViaApi(video))
