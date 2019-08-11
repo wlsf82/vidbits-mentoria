@@ -27,7 +27,7 @@ describe("Vidbits", () => {
     });
   });
 
-  context("API seeding and testing", () => {
+  context("API - seeding and testing", () => {
     beforeEach(() => cy.server());
 
     context("Seed application via API and check via browser UI", () => {
