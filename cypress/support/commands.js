@@ -1,4 +1,4 @@
-Cypress.Commands.add("createVideo", video => {
+Cypress.Commands.add("createVideoViaBrowser", video => {
   cy.visit("videos/create");
   cy.get("#video-title-input")
     .type(video.title);

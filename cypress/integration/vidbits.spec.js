@@ -6,7 +6,7 @@ describe("Vidbits", () => {
   context("Browser UI", () => {
     context("Empty state", () => {
       it("creates two videos", () => {
-        videos.forEach(video => cy.createVideo(video));
+        videos.forEach(video => cy.createVideoViaBrowser(video));
 
         cy.visit("videos");
 
@@ -18,7 +18,7 @@ describe("Vidbits", () => {
       beforeEach(() => cy.exec("npm run seed-db"));
 
       it("creates two more videos", () => {
-        videos.forEach(video => cy.createVideo(video));
+        videos.forEach(video => cy.createVideoViaBrowser(video));
 
         cy.visit("videos");
 
