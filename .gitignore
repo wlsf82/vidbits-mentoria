@@ -1,5 +1,5 @@
 .DS_Store
-cypress/screenshots
-cypress/videos
-node_modules
-test/e2e/html-report
+cypress/screenshots/
+cypress/videos/
+node_modules/
+test/e2e/html-report/
