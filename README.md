@@ -1,5 +1,6 @@
-# vidbits-codecademy
-2nd Fullstack web application project for Codecademy's PRO course of TDD
+# VidBits
+
+Sample CRUD web app to create, view, edit and delete videos.
 
 ## Pre-requirements
 
