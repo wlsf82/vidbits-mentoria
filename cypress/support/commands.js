@@ -29,6 +29,20 @@ Cypress.Commands.add("createVideoViaApi", video => {
   });
 });
 
+Cypress.Commands.add("editVideoViaApi", (id, newVideo) => {
+  cy.request({
+    method: "POST",
+    url: `/videos/${id}/edit`,
+    followRedirect: false,
+    form: true,
+    body: {
+      title: newVideo.title,
+      description: newVideo.description,
+      url: newVideo.url
+    }
+  });
+});
+
 Cypress.Commands.add("getVideoIdFromHomePage", () => {
   cy.request({
     method: "GET",

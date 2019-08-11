@@ -43,7 +43,8 @@ describe("Vidbits", () => {
     context("Testing only in the API layer", () => {
       it("creates two videos", () => {
         videos.forEach(video => {
-          cy.createVideoViaApi(video).then(response => {
+          cy.createVideoViaApi(video)
+          .then(response => {
             expect(response.status).to.eq(201);
             expect(response.body).to.include(video.title);
             expect(response.body).to.include(video.url);
@@ -52,29 +53,21 @@ describe("Vidbits", () => {
       });
 
       it("does not create video due to missing body data", () => {
-        cy.createVideoViaApi({}).then(response => {
+        cy.createVideoViaApi({})
+        .then(response => {
           expect(response.status).to.eq(400);
         });
       });
 
       it("edits video information", () => {
         cy.createVideoViaApi(videos[1]);
-        cy.getVideoIdFromHomePage().then(videoId => {
-          cy.request({
-            method: "POST",
-            url: `/videos/${videoId}/edit`,
-            followRedirect: false,
-            form: true,
-            body: {
-              title: "Chaos and intuition engineering",
-              description:
-                "GOTO 2016 • Chaos & Intuition Engineering at Netflix • Casey Rosenthal.",
-              url: "https://www.youtube.com/embed/Q4nniyAarbs"
-            }
-          }).then(response => {
+        cy.getVideoIdFromHomePage()
+        .then(id => {
+          cy.editVideoViaApi(id, videos[0])
+          .then(response => {
             expect(response.status).to.eq(302);
             expect(response.redirectedToUrl).to.eq(
-              `${Cypress.config("baseUrl")}videos/${videoId}`
+              `${Cypress.config("baseUrl")}videos/${id}`
             );
           });
         });
