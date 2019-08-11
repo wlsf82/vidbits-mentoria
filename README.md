@@ -19,5 +19,3 @@ With mongodb already running, run `npm start`.
 ## Opening Cypress to run the tests in interative mode.
 
 Run `npx cypress open` to open Cypress, then click in the `vidbits.spec.js` file to run the tests.
-
-> Click 'Run all specs' to run all tests, including the examples.
