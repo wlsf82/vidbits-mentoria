@@ -1,5 +1,0 @@
-#/bin/sh
-
-set -e
-
-NODE_ENV=test ./node_modules/webdriverio/bin/wdio wdio.conf.js
