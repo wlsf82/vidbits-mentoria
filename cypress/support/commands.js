@@ -16,7 +16,6 @@ Cypress.Commands.add("validateNumberOfVideoCardsEqualTo", n => {
 });
 
 Cypress.Commands.add("createVideoViaApi", video => {
-  cy.server();
   return cy.request({
     method: "POST",
     url: "/videos",
