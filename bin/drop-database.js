@@ -12,6 +12,6 @@ dropTables()
         process.exit(0);
     })
     .catch(err => {
-        throw err;
         process.exit(1);
+        throw err;
     });

@@ -30,6 +30,6 @@ seed()
   })
   .catch(err => {
     console.log("Database seed unsuccessful");
-    throw err;
     process.exit(1);
+    throw err;
   });
