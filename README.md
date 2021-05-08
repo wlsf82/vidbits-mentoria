@@ -1,6 +1,8 @@
 # vidbits-codecademy
 2nd Fullstack web application project for Codecademy's PRO course of TDD
 
+⚠️ **This project has been deprecated.** ⚠️
+
 ## Pre-requirements
 
 - node v10.15.3
